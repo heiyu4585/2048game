@@ -1,0 +1,54 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>2048</title>
+    <link rel="stylesheet" type="text/css" href="2048.css"/>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <!--<script type="text/javascript" src="react/react.js"></script>-->
+    <!--<script type="text/javascript" src="react/react-dom.js"></script>-->
+    <!--<script type="text/javascript" src="react/browser.min.js"></script>-->
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+<div id="div2048">
+    <a id="start">tap to start :-)</a>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+    <div class="tile tile2" val="" index="0"></div>
+</div>
+</body>
+
+<!--
+2048 思路分析:
+1.4*4的方格 ,   初始时,在随即位置出现2个2,
+2.每次操作后在剩余的随机位置 出现 数字2
+3.根据操作的方向不同,判断相邻位置的格子合并,数字相加,样式改变
+4.样式   不同的值,不同样式 2.4.8
+5.js    方向键 或者 鼠标控制上下左右
+6.界面上没有相同数字时,判断失败,
+7.点击后重新开始
+8.是否支持悔棋,悔棋步数
+
+
+
+10.react版本
+9.使用es6开发
+11.不要想得太多
+
+-->
+</html>
