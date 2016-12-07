@@ -21,17 +21,6 @@ Game.prototype = {
         }.bind(this));
     },
     addNum: function (numLength) {
-        var isNotFull = false;
-        for (var i = 0; i < 16; i++) {
-            if (this.Num[i] == 0) {
-                isNotFull = true;
-            }
-        }
-        if (!isNotFull) {
-            alert("失败!请重新开始!");
-            this.clean();
-            return false;
-        }
         $.each(this.randomNum(numLength), function (index, ele) {
             //console.log(ele);
             this.Num[ele] = 2;
@@ -57,9 +46,37 @@ Game.prototype = {
         this.initNum(); //重置数组
         this.numList.text("");
         $("#start").show();
+        $("#div2048 div").removeClass().addClass("tile tile2");
         this.numList.hide();
     },
+    isOver:function(Num){
+        if(Num.indexOf(0) != -1 ){ //不包含零
+            return false;
+        }
+        for (var m = 0; m < 4; m++) {
+            for(var i=0;i<4;i++){    //相加
+                for(var j=0;j<4-i-1;j++){
+                    if((Num[m*4+j]!=0) && (Num[m*4+j] == Num[m*4+j+1]) ){
+                        return  false;
+                    }
+                }
+            }
+            for(var i=0;i<4;i++){    //相加
+                for(var j=0;j<4-i-1;j++){
+                    if((Num[m+j*4]!=0) && (Num[m+j*4] == Num[m+(j+1)*4]) ){
+                        return  false;
+                    }
+                }
+            }
+        }
+        return true;
+    },
     move: function (KeyDown) {
+        if(this.isOver(this.Num)){
+            alert("失败!请重新开始!");
+            this.clean();
+            return false;
+        }
         switch (KeyDown) {
             case 37: // 左
                 var nowThisNum=[];
